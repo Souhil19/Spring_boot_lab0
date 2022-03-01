@@ -28,7 +28,7 @@ public class Etudiant {
     private Civility genre;
 
     @OneToOne(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
-    private String dep;
+    private String departement;
 
     private Date DateEmb;
 
