@@ -8,13 +8,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-public class projet {
+public class Projet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
     private int duree;
     @OneToMany
-    private Set<etudiant> lesEtudiants=new HashSet<>();
+    private Set<Etudiant> lesEtudiants=new HashSet<>();
 
 }
