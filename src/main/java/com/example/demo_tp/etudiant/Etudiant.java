@@ -9,12 +9,14 @@ import org.apache.tomcat.jni.Address;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Data
+@Table
 public class Etudiant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,8 +35,10 @@ public class Etudiant {
     private Date DateEmb;
 
     @Embedded
-    @Basic(fetch = FetchType.LAZY)
-    private Address address;
+    @ToString.Exclude
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable( name="AdresseTable")
+    private Collection<Address> address;
 
     @OneToMany(fetch = FetchType.LAZY)
     private Projet projet;

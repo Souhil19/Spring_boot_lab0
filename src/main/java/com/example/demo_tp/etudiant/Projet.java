@@ -1,12 +1,17 @@
 package com.example.demo_tp.etudiant;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 
 public class Projet {
     @Id
@@ -14,7 +19,7 @@ public class Projet {
     private Long id;
     private String nom;
     private int duree;
-    @OneToMany
-    private Set<Etudiant> lesEtudiants=new HashSet<>();
+    @OneToMany(mappedBy = "projet",fetch = FetchType.LAZY)
+    private Collection<Etudiant> listEtudiants;
 
 }
