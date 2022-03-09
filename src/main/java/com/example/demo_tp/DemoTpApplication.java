@@ -2,6 +2,7 @@ package com.example.demo_tp;
 
 import com.example.demo_tp.etudiant.Etudiant;
 import com.example.demo_tp.etudiant.repositories.EtudiantRepository;
+import com.example.demo_tp.etudiant.repositories.FormationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,17 +11,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DemoTpApplication implements CommandLineRunner {
 
-    EtudiantRepository etudiantRepository;
     @Autowired
-    public DemoTpApplication(EtudiantRepository etudiantRepository) {
-        this.etudiantRepository = etudiantRepository;
-    }
+    EtudiantRepository etudiantRepository;
+
+    @Autowired
+    FormationRepository formationRepository;
+
 
     public static void main(String[] args) {
         SpringApplication.run(DemoTpApplication.class, args);
     }
     @Override
-    public void run(String... args){
+    public void run(String... args) throws Exception{
 
 //        etudiantRepository.save(new Etudiant(null,
 //                "aymen",
@@ -29,8 +31,7 @@ public class DemoTpApplication implements CommandLineRunner {
 //                null
 //        ));
 
-        etudiantRepository.findEtudiantByNom("aymen");
 
-        etudiantRepository.findAll().forEach(System.out::println);
+        //etudiantRepository.findAll().forEach(System.out::println);
     }
 }

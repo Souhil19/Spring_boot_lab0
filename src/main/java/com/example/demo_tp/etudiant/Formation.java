@@ -12,6 +12,7 @@ import java.util.Collection;
 @NoArgsConstructor
 @Data
 @ToString
+@Table
 public class Formation {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,7 +20,7 @@ public class Formation {
     private String nom;
 
     @ToString.Exclude
-    @OneToMany
+    @ManyToMany
     private Collection<Etudiant> etudiantsList;
 
 }
