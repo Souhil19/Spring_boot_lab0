@@ -9,5 +9,6 @@ import java.util.List;
 
 @RepositoryRestResource
 public interface EtudiantRepository extends JpaRepository<Etudiant,Long> {
-    List<Etudiant> getEtudiants();
+
+    List<Etudiant> findEtudiantByNom(String nom);
 }

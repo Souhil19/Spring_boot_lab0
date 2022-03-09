@@ -12,13 +12,14 @@ import java.util.Collection;
 @NoArgsConstructor
 @Data
 @ToString
-public class Departement {
+public class Formation {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(length = 20, nullable = false)
     private String nom;
+
     @ToString.Exclude
-    @OneToMany(mappedBy = "deparetment",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Collection<Etudiant> etudiants;
+    @OneToMany
+    private Collection<Etudiant> etudiantsList;
 
 }
